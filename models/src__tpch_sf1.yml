@@ -34,7 +34,8 @@ sources:
             data_tests:
               - not_null
               - accepted_values:
-                  values: ['HOUSEHOLD', 'BUILDING', 'FURNITURE', 'MACHINERY', 'AUTOMOBILE']
+                  arguments: 
+                    values: ['HOUSEHOLD', 'BUILDING', 'FURNITURE', 'MACHINERY', 'AUTOMOBILE']
 
           - name: c_address
             data_type: string
