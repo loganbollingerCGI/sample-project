@@ -124,5 +124,60 @@ sources:
 
           - name: l_comment
             data_type: text
+      - name: part
+        description: >
+          One record per product in Snowflake sample dataset
+        columns:
+          - name: p_partkey
+            data_type: int
+      
+      - name: part
+        description: >
+          One record per product in the Snowflake TPC-H sample dataset.
+        columns:
+          - name: p_partkey
+            description: Unique identifier for each product.
+            data_type: int
+            data_tests:
+              - unique
+              - not_null
+              - relationships:
+                  arguments:
+                    to: source('snowflake_sample_shop', 'lineitem')
+                    field: l_partkey
+
+          - name: p_name
+            description: Name of the product.
+            data_type: varchar
+
+          - name: p_mfgr
+            description: Manufacturer of the product.
+            data_type: varchar
+
+          - name: p_brand
+            description: Brand of the product.
+            data_type: varchar
+
+          - name: p_type
+            description: Product type or classification.
+            data_type: varchar
+
+          - name: p_size
+            description: Size of the product.
+            data_type: int
+
+          - name: p_container
+            description: Container or packaging type.
+            data_type: varchar
+
+          - name: p_retailprice
+            description: Retail price of the product.
+            data_type: number
+            data_tests:
+              - non_negative
+
+          - name: p_comment
+            description: Additional comments about the product.
+            data_type: varchar
 
             # don't need to list all columns, although it is recommended to
