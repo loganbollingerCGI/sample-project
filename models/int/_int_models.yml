@@ -69,3 +69,9 @@ models:
         data_type: int
         data_tests:
           - non_negative # CUSTOM TEST (at: tests/generic/non_negative.sql)
+
+      - name: avg_part_retailprice
+        data_type: number
+        description: >
+          Average retail price of the products
+          represented by line items in each order.

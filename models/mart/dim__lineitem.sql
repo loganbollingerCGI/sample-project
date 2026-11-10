@@ -11,6 +11,12 @@ with lineitem as (
 
 ),
 
+part as (
+
+    select * from {{ ref('stg__part') }}
+
+),
+
 -- combine final customer information
 lineitem_info as (
 
@@ -20,11 +26,14 @@ lineitem_info as (
         ship_mode,
         receipt_date,
         quantity,
+        part.name as part_name,
 
         -- get amount in default configured currency, after multiplying by conversion factor (macro at: /macros/format_currency.sql)
         {{ format_currency('extended_price', var('default_currency_type')) }} as extended_price
     from
         lineitem
+    join part
+        on lineitem.part_id = part.part_id
 
 )
 

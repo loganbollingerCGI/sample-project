@@ -124,12 +124,6 @@ sources:
 
           - name: l_comment
             data_type: text
-      - name: part
-        description: >
-          One record per product in Snowflake sample dataset
-        columns:
-          - name: p_partkey
-            data_type: int
       
       - name: part
         description: >
