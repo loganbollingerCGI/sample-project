@@ -17,3 +17,9 @@ Orders may have the following priorities:
 {% docs lineitem_id %}
 Unique identifier for line item
 {% enddocs %}
+
+{% docs part_id %}
+
+Unique identifier for a product in the Snowflake sample dataset. Used to join product information with order line items.
+
+{% enddocs %}
